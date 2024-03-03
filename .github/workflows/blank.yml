@@ -15,12 +15,12 @@ float sensorValue,MQ2pin;
 sensorValue = analogRead(MQ2pin);
 
  if(sensorValue < 375 ){
-        digitalWrite(G, HIGH) ;
+        digitalWrite(G, HIGH);
     Serial.print(sensorValue);
     Serial.println(" NO SMOKE DETECTED");
     }
   if (375 <= sensorValue < 500){
-        digitalWrite(B, HIGH) ;
+        digitalWrite(B, HIGH);
  	Serial.print(sensorValue);
     Serial.println(" SMOKE DETECTED");
   }
