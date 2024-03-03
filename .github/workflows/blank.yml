@@ -1,0 +1,43 @@
+int MQ2pin = A0;
+int R = 9;
+int G = 10;
+int B = 11;
+
+  void setup(){
+  float sensorValue,MQ2pin;
+    pinMode(R, OUTPUT);
+    pinMode(G, OUTPUT);
+    pinMode(B, OUTPUT);
+  }
+      
+void loop(){
+float sensorValue,MQ2pin;
+sensorValue = analogRead(MQ2pin);
+
+ if(sensorValue < 375 ){
+        digitalWrite(G, HIGH) ;
+    Serial.print(sensorValue);
+    Serial.println(" NO SMOKE DETECTED");
+    }
+  if (375 <= sensorValue < 500){
+        digitalWrite(B, HIGH) ;
+ 	Serial.print(sensorValue);
+    Serial.println(" SMOKE DETECTED");
+  }
+  if (sensorValue >= 500){
+        digitalWrite(R, HIGH) ;
+        Serial.print(sensorValue);
+        Serial.println(" EXTREME SMOKE DETECTED");
+  }
+  else{
+        digitalWrite(B, LOW);
+        digitalWrite(G, LOW);
+        digitalWrite(R, LOW);
+        Serial.println("Sensor Value: ");
+        Serial.println(sensorValue);
+  }
+}
+
+ float getsensorValue(int pin){
+      return (analogRead(pin));
+}
